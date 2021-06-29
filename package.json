@@ -1,0 +1,28 @@
+{
+  "name": "fit-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TatyanaYarush/fit-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TatyanaYarush/fit-tracker/issues"
+  },
+  "homepage": "https://github.com/TatyanaYarush/fit-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongojs": "^3.1.0",
+    "mongoose": "^5.13.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
