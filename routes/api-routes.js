@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Workouts = require("../models/workouts");
+const Workouts = require("../models/workouts.js");
+
 app = express();
 var d = new Date();
 
@@ -58,7 +59,7 @@ module.exports = function (app) {
     var sunday = new Date(
       new Date().setDate(new Date().getDate() - d.getDay())
     ).setHours(00, 00, 00);
-    console.log("sunday", sunday);
+
     try {
       const data = await Workouts.find({ date: { $gte: sunday } }).sort({
         date: 1,
@@ -70,3 +71,16 @@ module.exports = function (app) {
     }
   });
 };
+
+function dayCalc(num) {
+  var d = new Date();
+  num = num % 7;
+  var sub = d.getDay() - num;
+
+  if (sub >= 0) {
+    return sub;
+  } else {
+    sub += 7;
+    return sub;
+  }
+}
