@@ -1,13 +1,13 @@
-const express = require("express");
+const router = require('express').Router();
 const mongoose = require("mongoose");
 const Workouts = require("../models/workouts.js");
 
-app = express();
+// router = express();
 var d = new Date();
 
-module.exports = function (app) {
+// module.exports = function (router) {
   //Get all workouts
-  app.get("/api/workouts", (req, res) => {
+  router.get("/api/workouts", (req, res) => {
     Workouts.find({})
       .sort({ date: 1 })
       .then((data) => {
@@ -18,7 +18,7 @@ module.exports = function (app) {
       });
   });
 
-  app.put("/api/workouts/:id", async (req, res) => {
+  router.put("/api/workouts/:id", async (req, res) => {
     console.log("PUT ID", req.params.id);
     // INCLUDE ALL OF EXERCISE
     try {
@@ -44,7 +44,7 @@ module.exports = function (app) {
     }
   });
   //Create new workout
-  app.post("/api/workouts", (req, res) => {
+  router.post("/api/workouts", (req, res) => {
     Workouts.create({ date: Date.now(), day: d.getDay() })
       .then((data) => {
         res.json(data);
@@ -55,7 +55,7 @@ module.exports = function (app) {
   });
 
   //Get all workouts
-  app.get("/api/workouts/range", async (req, res) => {
+  router.get("/api/workouts/range", async (req, res) => {
     var sunday = new Date(
       new Date().setDate(new Date().getDate() - d.getDay())
     ).setHours(00, 00, 00);
@@ -70,7 +70,7 @@ module.exports = function (app) {
       throw err;
     }
   });
-};
+
 
 function dayCalc(num) {
   var d = new Date();
@@ -84,3 +84,5 @@ function dayCalc(num) {
     return sub;
   }
 }
+
+module.exports = router;
