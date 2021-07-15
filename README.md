@@ -58,7 +58,11 @@ npm install --save
 ```
 
 ## Screenshots
+Fitness Tracker App
+![fittracker app](https://user-images.githubusercontent.com/70031550/125843676-6851948c-d665-48ce-87d2-bb42a27dfbad.JPG)
 
+MongoDB
+![screenshot_MongoDB](https://user-images.githubusercontent.com/70031550/125843706-e742ea9e-5d45-4e4c-b3c3-5b688763a0ee.JPG)
 
 ## Dependencies & Technologies
 
